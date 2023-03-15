@@ -132,13 +132,13 @@ otp.layers.StopsLayer =
 
         popupContent.find('.planFromLink').data('stop', stop).click(function() {
             var thisStop = $(this).data('stop');
-            this_.module.setStartPoint(new L.LatLng(thisStop.lat, thisStop.lon), false, thisStop.stopName);
+            this_.module.setStartPoint(new L.LatLng(thisStop.lat, thisStop.lon), false, thisStop.name);
             this_.module.webapp.map.lmap.closePopup();
         });
 
         popupContent.find('.planToLink').data('stop', stop).click(function() {
             var thisStop = $(this).data('stop');
-            this_.module.setEndPoint(new L.LatLng(thisStop.lat, thisStop.lon), false, thisStop.stopName);
+            this_.module.setEndPoint(new L.LatLng(thisStop.lat, thisStop.lon), false, thisStop.name);
             this_.module.webapp.map.lmap.closePopup();
         });
 
