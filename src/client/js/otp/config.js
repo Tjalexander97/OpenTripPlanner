@@ -140,7 +140,7 @@ otp.config = {
 
     siteName            : "UL Trip Planner",
     siteDescription     : "An OpenTripPlanner deployment.",
-    logoGraphic         : 'images/ul-logo.jpg',
+    logoGraphic         : 'images/ul_logo.png',
     // bikeshareName    : "",
     //Enable this if you want to show frontend language chooser
     showLanguageChooser : true,

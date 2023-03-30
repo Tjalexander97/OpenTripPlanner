@@ -40,8 +40,8 @@ public class RouteDialog extends JDialog {
     goButton.addActionListener(
       new ActionListener() {
         public void actionPerformed(ActionEvent e) {
-          from = fromField.getText().trim();
-          to = toField.getText().trim();
+          from = fromField.getText();
+          to = toField.getText();
           outer.setVisible(false);
         }
       }

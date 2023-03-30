@@ -1,0 +1,17 @@
+{
+  "otpFeatures": {
+    "ActuatorAPI": true,
+    "SandboxAPITransmodelApi": true,
+    "FlexRouting": true,
+    "FloatingBike": true,
+    "OptimizeTransfers": true,
+    "TransferConstraints": true,
+    "ParallelRouting": true,
+    "ReportApi": true,
+    "VehicleToStopHeuristics": true,
+    "SandboxAPIMapboxVectorTilesApi": true,
+    "SandboxAPIGeocoder": true,
+    "SandboxAPILegacyGraphQLApi": true,
+    "SandboxAPITravelTime": true
+  }
+}

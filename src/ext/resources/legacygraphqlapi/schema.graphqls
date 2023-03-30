@@ -1600,6 +1600,11 @@ type PageInfo {
 
 """Realtime vehicle position"""
 type VehiclePosition {
+    gtfsId: String,
+
+    shortName: String,
+
+    code: String,
     """Feed-scoped ID that uniquely identifies the vehicle in the format FeedId:VehicleId"""
     vehicleId: String,
     """Human-readable label of the vehicle, eg. a publicly visible number or a license plate"""
@@ -1621,6 +1626,8 @@ type VehiclePosition {
     lastUpdated: Long
     """Which trip this vehicles runs on."""
     trip: Trip!
+
+    tripId: String
 }
 
 """Upcoming or current stop and how close the vehicle is to it."""

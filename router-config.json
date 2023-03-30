@@ -1,0 +1,181 @@
+{
+  "routingDefaults": {
+    "walkSpeed": 1.3,
+    "bikeSpeed": 5,
+    "carSpeed": 40,
+    "numItineraries": 12,
+    "transferPenalty": 0,
+    "walkReluctance": 4.0,
+    "bikeReluctance": 5.0,
+    "bikeWalkingReluctance": 10.0,
+    "carReluctance": 10.0,
+    "stairsReluctance": 1.65,
+    "turnReluctance": 1.0,
+    "elevatorBoardTime": 90,
+    "elevatorBoardCost": 90,
+    "elevatorHopTime": 20,
+    "elevatorHopCost": 20,
+    "bikeRentalPickupCost": 120,
+    "bikeRentalDropoffTime": 30,
+    "bikeRentalDropoffCost": 30,
+    "bikeParkTime": 60,
+    "bikeParkCost": 120,
+    "carDropoffTime": 120,
+    "waitReluctance": 1.0,
+    "walkBoardCost": 600,
+    "bikeBoardCost": 600,
+    "otherThanPreferredRoutesPenalty": 300,
+    "transferSlack": 120,
+    // Default slack for any mode is 0 (zero)
+    "boardSlackForMode": {
+      "AIRPLANE": "2100s"
+    },
+    "alightSlackForMode": {
+      "AIRPLANE": "900s"
+    },
+    "transitReluctanceForMode": {
+      "RAIL": 0.85
+    },
+    "maxAccessEgressDurationForMode": {
+      "BIKE_RENTAL": "20m"
+    },
+    "itineraryFilters": {
+      "transitGeneralizedCostLimit": "3600 + 2.5 x",
+      "bikeRentalDistanceRatio": 0.3
+    },
+    "carDecelerationSpeed": 2.9,
+    "carAccelerationSpeed": 2.9,
+    "ignoreRealtimeUpdates": false,
+    "geoidElevation": false,
+    "maxJourneyDuration": "36h",
+    "transferOptimization": {
+      "optimizeTransferWaitTime": true,
+      "minSafeWaitTimeFactor": 5.0,
+      "backTravelWaitTimeFactor": 1.0,
+      "extraStopBoardAlightCostsFactor": 8.0
+    }
+  },
+  "transit": {
+    "maxNumberOfTransfers": 12,
+    "dynamicSearchWindow": {
+      "minTransitTimeCoefficient": 0.5,
+      "minWaitTimeCoefficient": 0.5,
+      "minWinTimeMinutes": 60,
+      "maxWinTimeMinutes": 300
+    },
+    "stopTransferCost": {
+      "DISCOURAGED": 1500,
+      "ALLOWED": 75,
+      "RECOMMENDED": 30,
+      "PREFERRED": 0
+    }
+  },
+  "vectorTileLayers": [
+    {
+      "name": "stops",
+      "type": "Stop",
+      "mapper": "Digitransit",
+      "maxZoom": 20,
+      "minZoom": 14,
+      "cacheMaxSeconds": 600
+    },
+    {
+      "name": "stations",
+      "type": "Station",
+      "mapper": "Digitransit",
+      "maxZoom": 20,
+      "minZoom": 12,
+      "cacheMaxSeconds": 600
+    },
+    // all rental places: stations and free-floating vehicles
+    {
+      "name": "citybikes",
+      "type": "VehicleRental",
+      "mapper": "Digitransit",
+      "maxZoom": 20,
+      "minZoom": 14,
+      "cacheMaxSeconds": 60,
+      "expansionFactor": 0.25
+    },
+    // just free-floating vehicles
+    {
+      "name": "rentalVehicles",
+      "type": "VehicleRentalVehicle",
+      "mapper": "DigitransitRealtime",
+      "maxZoom": 20,
+      "minZoom": 14,
+      "cacheMaxSeconds": 60
+    },
+    // just rental stations
+    {
+      "name": "rentalStations",
+      "type": "VehicleRentalStation",
+      "mapper": "Digitransit",
+      "maxZoom": 20,
+      "minZoom": 14,
+      "cacheMaxSeconds": 600
+    },
+    // Contains just stations and realtime information for them
+    {
+      "name": "realtimeRentalStations",
+      "type": "VehicleRentalStation",
+      "mapper": "DigitransitRealtime",
+      "maxZoom": 20,
+      "minZoom": 14,
+      "cacheMaxSeconds": 60
+    },
+    // This exists for backwards compatibility. At some point, we might want
+    // to add a new realtime parking mapper with better translation support
+    // and less unnecessary fields.
+    {
+      "name": "stadtnaviVehicleParking",
+      "type": "VehicleParking",
+      "mapper": "Stadtnavi",
+      "maxZoom": 20,
+      "minZoom": 14,
+      "cacheMaxSeconds": 60,
+      "expansionFactor": 0.25
+    },
+    // no realtime, translatable fields are translated based on accept-language header
+    // and contains less fields than the Stadtnavi mapper
+    {
+      "name": "vehicleParking",
+      "type": "VehicleParking",
+      "mapper": "Digitransit",
+      "maxZoom": 20,
+      "minZoom": 14,
+      "cacheMaxSeconds": 600,
+      "expansionFactor": 0.25
+    },
+    {
+      "name": "vehicleParkingGroups",
+      "type": "VehicleParkingGroup",
+      "mapper": "Digitransit",
+      "maxZoom": 17,
+      "minZoom": 14,
+      "cacheMaxSeconds": 600,
+      "expansionFactor": 0.25
+    }
+  ],
+  "updaters": [
+    {
+      "type": "real-time-alerts",
+      "frequencySec": 30,
+      "url": "https://opendata.samtrafiken.se/gtfs-rt/ul/ServiceAlerts.pb?key=8be89046c0a0459caf26c8510aac1dd0",
+      "feedId": "SE-ul"
+    },
+    {
+      "type": "stop-time-updater",
+      "frequencySec": 10,
+      "sourceType": "gtfs-http",
+      "url": "https://opendata.samtrafiken.se/gtfs-rt/ul/TripUpdates.pb?key=8be89046c0a0459caf26c8510aac1dd0",
+      "feedId": "SE-ul"
+    },
+    {
+      "type": "vehicle-positions",
+      "url": "https://opendata.samtrafiken.se/gtfs-rt/ul/VehiclePositions.pb?key=8be89046c0a0459caf26c8510aac1dd0",
+      "feedId": "SE-ul",
+      "frequencySec": 60
+    }
+  ]
+}

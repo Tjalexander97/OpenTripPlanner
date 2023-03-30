@@ -1,0 +1,24 @@
+{
+  "subwayAccessTime": 0,
+  "embedRouterConfig": true,
+  "areaVisibility": true,
+  "platformEntriesLinking": true,
+  "matchBusRoutesToStreets": false,
+  "staticParkAndRide": true,
+  "staticBikeParkAndRide": true,
+  "maxDataImportIssuesPerFile": 1000,
+  "islandPruning": {
+    "islandWithoutStopsMaxSize": 5,
+    "islandWithStopsMaxSize": 5
+  },
+  "banDiscouragedWalking": false,
+  "banDiscouragedBiking": false,
+  "maxTransferDurationSeconds": 1800,
+  "extraEdgesStopPlatformLink": true,
+  "distanceBetweenElevationSamples": 25,
+  "multiThreadElevationCalculations": true,
+  "osmDefaults": {
+    "osmTagMapping": "norway",
+    "timeZone": "Europe/Oslo"
+  }
+}

@@ -52,7 +52,7 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; }
 
 body, select, input, textarea {
   /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
-  color: #444;
+  color: #444; /* Trip options text color
   /* set your base font here, to apply evenly */
   font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
 }
@@ -240,7 +240,7 @@ body {
     width: 30px;
     height: 30px;
     margin: 10px 10px 0 0;
-    background: url('images/gear2.svg');
+    background: url('images/ic_settings.svg');
     background-size: 30px 30px;
     cursor: pointer;
 }
