@@ -54,12 +54,16 @@ otp.locale.English = {
     infoWidgets : [
             {
                 title: 'About',
-                content: '<p>About this site</p>',
+                content: '<p>This is a Proof of Concept for a trip planner for UL created using OpenStreetMap, OpenTripPlanner and GTFS and GTFS-RT data from Trafiklab. ' + '<br>' +
+                  'Made by: Alexander Wiklund and Billie Westerlund</p>',
+
                 //cssClass: 'otp-contactWidget',
             },
             {
                 title: 'Contact',
-                content: '<p>Comments? Contact us at...</p>'
+                content: '<p>Contact us at:' + '<br>' +
+                  'Phone: 0771-14 14 14' + '<br>' +
+                  'Social media: facebook.se/ultrafik</p>'
             },
     ],
 

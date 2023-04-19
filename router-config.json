@@ -3,7 +3,7 @@
     "walkSpeed": 1.3,
     "bikeSpeed": 5,
     "carSpeed": 40,
-    "numItineraries": 12,
+    "numItineraries": 6,
     "transferPenalty": 0,
     "walkReluctance": 4.0,
     "bikeReluctance": 5.0,
